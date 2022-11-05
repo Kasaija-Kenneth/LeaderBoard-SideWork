@@ -1,0 +1,104 @@
+:root {
+  padding: 0;
+  margin: 0;
+  --pix: 100px;
+}
+
+.global-wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.header-wrapper {
+  height: var(--pix);
+  margin: 1px;
+  display: flex;
+}
+
+.main-body {
+  display: flex;
+  width: 99.6vw;
+  height: calc(99vh - var(--pix));
+  gap: 50px;
+  justify-self: center;
+  justify-content: center;
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  border: solid 1px;
+  height: 99.3%;
+  align-self: center;
+}
+
+.lists-header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 10px;
+
+}
+
+h3  {
+  font-size: 28px;
+}
+
+button.refresh {
+  width: fit-content;
+  font-size: 20px;
+  height: 29px;
+}
+.input {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 99.3%;
+  align-self: center;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+}
+
+input {
+  margin-top: 15px;
+  height: 25px;
+  padding-left: 10px;
+  font-size: 16px;
+  border: solid 1px;
+}
+
+button.button {
+  width: fit-content;
+  align-self: flex-end;
+  margin-right: 14.4%;
+  font-size: 20px;
+  margin: 0;
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-items: center;
+}
+
+.name {
+  margin-bottom: 15px;
+}
+
+div.header-div  {
+  width: 40%;
+}
+
+div.main-header {
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+  margin-left: 7vw;
+}
