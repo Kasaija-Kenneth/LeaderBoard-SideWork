@@ -33,6 +33,25 @@
   align-self: center;
 }
 
+.scores {
+  height: inherit;
+  overflow: scroll;
+}
+
+.score-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+span {
+  display: flex;
+  margin-left: 3%;
+  margin-right: 3%;
+  height: 30px;
+  align-items: center;
+  font-size: 21px;
+}
+
 .lists-header {
   display: flex;
   align-items: center;

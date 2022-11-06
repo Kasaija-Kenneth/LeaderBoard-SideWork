@@ -15,11 +15,7 @@ const sendData = async (username, scored) => {
     ),
   };
 
-  const response = await fetch(postUrl, message);
-  console.log('In Response', response);
-  const data = await response.json();
-  console.log('Data = ', data);
-  return data;
+  await fetch(postUrl, message);
 };
 
 export default sendData;

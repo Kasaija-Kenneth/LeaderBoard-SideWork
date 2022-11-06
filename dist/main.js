@@ -110,53 +110,13 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
-/***/ "./src/body.js":
-/*!*********************!*\
-  !*** ./src/body.js ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst htmlBody = () => {\n  const mainBody = document.querySelector('.main-body');\n\n  mainBody.appendChild(document.createElement('section'));\n  mainBody.appendChild(document.createElement('section'));\n\n  mainBody.firstChild.className = 'lists';\n  mainBody.lastChild.className = 'input';\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (htmlBody);\n\n\n//# sourceURL=webpack://leaderboard-sidework/./src/body.js?");
-
-/***/ }),
-
-/***/ "./src/getPost.js":
-/*!************************!*\
-  !*** ./src/getPost.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst postUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/';\nconst uniqueId = 'UjUsHlhrqGGPD9EjImcN/scores/';\nconst getUrl = `${postUrl}${uniqueId}`;\n\n// Function to make http Request\nconst sendData = async (users, scores) => {\n  const data = {\n    method: 'POST',\n    user: users,\n    score: scores,\n  };\n\n  // Message formart\n  const message = {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json',\n    },\n    body: JSON.stringify(data),\n  };\n\n  const response = await fetch(getUrl, message);\n  if (response.ok) {\n    return response;\n  } return 'Empty';\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (sendData);\n\n//# sourceURL=webpack://leaderboard-sidework/./src/getPost.js?");
-
-/***/ }),
-
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _body_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./body.js */ \"./src/body.js\");\n/* harmony import */ var _scoreList_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scoreList.js */ \"./src/scoreList.js\");\n/* harmony import */ var _inputForm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./inputForm.js */ \"./src/inputForm.js\");\n\n\n\n\n\nconst globalWrapper = document.createElement('div');\ndocument.body.appendChild(globalWrapper);\n\nglobalWrapper.className = 'global-wrapper';\nglobalWrapper.appendChild(document.createElement('header'));\nglobalWrapper.firstChild.className = 'header-wrapper';\nglobalWrapper.firstChild.appendChild(document.createElement('div'));\nglobalWrapper.firstChild.firstChild.className = 'main-header';\nglobalWrapper.firstChild.firstChild.innerHTML = 'Leaderboard';\n\nglobalWrapper.appendChild(document.createElement('div'));\nglobalWrapper.lastChild.className = 'main-body';\n\n(0,_body_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n(0,_scoreList_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n(0,_inputForm_js__WEBPACK_IMPORTED_MODULE_3__[\"default\"])();\n\n\n//# sourceURL=webpack://leaderboard-sidework/./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/inputForm.js":
-/*!**************************!*\
-  !*** ./src/inputForm.js ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _getPost_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getPost.js */ \"./src/getPost.js\");\n/* eslint-disable no-unused-expressions */\n/* eslint-disable no-undef */\n/* eslint-disable no-unused-vars */\n\n\n\nconst userInput = () => {\n  const formSection = document.querySelector('.input');\n  formSection.appendChild(document.createElement('div'));\n  formSection.firstChild.className = 'form-div';\n  formSection.firstChild.appendChild(document.createElement('div'));\n  formSection.firstChild.appendChild(document.createElement('div'));\n  formSection.firstChild.firstChild.className = 'header-div';\n  formSection.firstChild.firstChild.appendChild(document.createElement('h3'));\n  formSection.firstChild.lastChild.className = 'form-body';\n\n  const formHeader = document.querySelector('.header-div');\n  formHeader.firstChild.innerHTML = 'Add your scrore';\n\n  const formBody = document.querySelector('.form-div');\n  formBody.lastChild.appendChild(document.createElement('form'));\n  const form = document.querySelector('form');\n  form.appendChild(document.createElement('input'));\n  form.appendChild(document.createElement('input'));\n  form.appendChild(document.createElement('button'));\n\n  // covert form element to array using Array.from() and assigning class names to array elements\n  Array.from(form).forEach((element, index) => {\n    if (index === 0) {\n      element.className = 'score';\n      element.placeholder = 'your score';\n    } else if (index === 1) {\n      element.className = 'name';\n      element.placeholder = 'your name';\n    } else {\n      element.className = 'button';\n      element.innerHTML = 'submit';\n    }\n  });\n\n  // function to submit form\n  const formData = document.querySelector('.form-body');\n  formData.addEventListener('submit', (e) => {\n    e.preventDefault;\n\n    const username = document.querySelector('.name').value;\n    const scored = document.querySelector('.score').value;\n    (0,_getPost_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(username, scored);\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (userInput);\n\n//# sourceURL=webpack://leaderboard-sidework/./src/inputForm.js?");
-
-/***/ }),
-
-/***/ "./src/scoreList.js":
-/*!**************************!*\
-  !*** ./src/scoreList.js ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst scoreDetails = () => {\n  const leaderBoard = document.querySelector('.lists');\n\n  leaderBoard.appendChild(document.createElement('div'));\n  leaderBoard.appendChild(document.createElement('div'));\n  leaderBoard.firstChild.className = 'lists-header';\n  leaderBoard.lastChild.className = 'scores';\n\n  const listHeader = document.querySelector('.lists-header');\n  listHeader.appendChild(document.createElement('h3'));\n  listHeader.firstChild.className = 'lists-parag';\n  listHeader.firstChild.innerHTML = 'Recent Scores';\n\n  listHeader.appendChild(document.createElement('button'));\n  listHeader.lastChild.className = 'refresh';\n  listHeader.lastChild.innerHTML = 'Refresh';\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (scoreDetails);\n\n//# sourceURL=webpack://leaderboard-sidework/./src/scoreList.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\n//# sourceURL=webpack://leaderboard-sidework/./src/index.js?");
 
 /***/ })
 
