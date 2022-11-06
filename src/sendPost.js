@@ -1,6 +1,6 @@
 // Function to make http Request
 const sendData = async (username, scored) => {
-  const postUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/q17NxTZ4VQj5jDHKX0Kh/scores/';
+  const postUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/X3ZtI9gM1rpl6B4cCc5A/scores/';
   // Message formart
   const message = {
     method: 'POST',
@@ -9,18 +9,17 @@ const sendData = async (username, scored) => {
     },
     body: JSON.stringify(
       {
-        user: username.value,
-        score: scored.value,
+        user: username,
+        score: scored,
       },
     ),
   };
 
   const response = await fetch(postUrl, message);
+  console.log('In Response', response);
   const data = await response.json();
-  if (data.ok) {
-    console.log(data);
-    return data;
-  } return 'Empty';
+  console.log('Data = ', data);
+  return data;
 };
 
 export default sendData;
